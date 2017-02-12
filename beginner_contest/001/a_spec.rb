@@ -1,7 +1,7 @@
 require 'rspec'
-require './a.rb'
+require File.join(File.dirname(__FILE__), 'a.rb')
 
-describe 'メイン関数のテスト' do
+describe 'Beginner Contest 001 A' do
   subject { f(h1, h2) }
 
   describe '入力例1' do
