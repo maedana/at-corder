@@ -10,9 +10,9 @@ $tree = {
 }
 
 def dfs(v, goal, visited = [])
-  # 既に訪問済みなので失敗を返す
-  return false if visited.include?(v)
   # 要素に対して処理をする
+  ## 既に訪問済みなので失敗を返す
+  return false if visited.include?(v)
   puts "processed: #{v}..."
   ## 訪問済にする
   visited.push(v)
@@ -28,5 +28,6 @@ def dfs(v, goal, visited = [])
 end
 
 puts "1から2を探せる: #{dfs(1, 2)}"
+puts "1から7を探せる: #{dfs(1, 7)}"
 puts "5から1を探せない: #{dfs(5, 1)}"
 puts "6から4を探せる: #{dfs(6, 4)}"
