@@ -8,3 +8,7 @@ Style/NumericLiterals:
 # 行の長さは正直別にどうでもいいような
 Metrics/LineLength:
   Enabled: false
+
+# 競技プログラミングだと使えたほうが楽
+Style/GlobalVars:
+  Enabled: false
