@@ -1,0 +1,10 @@
+inherit_gem:
+  sgcop: rails/rubocop.yml
+
+# 1_000_000のような書き方をする指摘。余計なお世話かなと。
+Style/NumericLiterals:
+  Enabled: false
+
+# 行の長さは正直別にどうでもいいような
+Metrics/LineLength:
+  Enabled: false
