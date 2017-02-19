@@ -1,6 +1,9 @@
 inherit_gem:
   sgcop: rails/rubocop.yml
 
+AllCops:
+  TargetRubyVersion: 2.3
+
 # 1_000_000のような書き方をする指摘。余計なお世話かなと。
 Style/NumericLiterals:
   Enabled: false
@@ -11,4 +14,8 @@ Metrics/LineLength:
 
 # 競技プログラミングだと使えたほうが楽
 Style/GlobalVars:
+  Enabled: false
+
+# 競技プログラミングでは不要なチェック
+RSpec/DescribeClass:
   Enabled: false
