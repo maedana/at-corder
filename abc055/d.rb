@@ -1,38 +1,29 @@
 # 解説を参照済
 def candidates(n, answers)
-  _candidates = [ %w(S S), %w(S W), %w(W W), %w(W S) ]
-  _candidates.each do |animals|
-    (1..(n - 2)).each do |i|
-      if animals[i - 1] == 'S' && animals[i] == 'S'
-        if answers[i] == 'o'
-          animals.push 'S'
+  _candidates = []
+  %w(S W).repeated_permutation(2) do |first, last|
+    animals = Array.new(n)
+    animals[0] = first
+    animals[-1] = last
+    (0...(n - 1)).each do |i|
+      animals[i + 1] =
+        if animals[i] == animals[i - 1]
+          if answers[i] == 'o'
+            'S'
+          else
+            'W'
+          end
         else
-          animals.push 'W'
+          if answers[i] == 'o'
+            'W'
+          else
+            'S'
+          end
         end
-      end
-      if animals[i - 1] == 'W' && animals[i] == 'S'
-        if answers[i] == 'o'
-          animals.push 'W'
-        else
-          animals.push 'S'
-        end
-      end
-      if animals[i - 1] == 'S' && animals[i] == 'W'
-        if answers[i] == 'o'
-          animals.push 'W'
-        else
-          animals.push 'S'
-        end
-      end
-      if animals[i - 1] == 'W' && animals[i] == 'W'
-        if answers[i] == 'o'
-          animals.push 'S'
-        else
-          animals.push 'W'
-        end
-      end
     end
+    _candidates.push(animals)
   end
+  _candidates
 end
 
 def f(n, s)
@@ -52,12 +43,11 @@ def f(n, s)
     else
       next unless (candidate[0] != candidate[n - 2])
     end
-    # solve
     return candidate.join
   end
   -1
 end
 
-#n = STDIN.gets.to_i
-#s = STDIN.gets
-#puts f(n, s)
+n = STDIN.gets.to_i
+s = STDIN.gets
+puts f(n, s)
