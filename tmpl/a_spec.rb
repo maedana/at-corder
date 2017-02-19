@@ -1,7 +1,7 @@
 require 'rspec'
 require File.join(File.dirname(__FILE__), 'a.rb')
 
-describe 'ABC055 A' do
+describe 'A問題' do
   subject { f(x) }
 
   describe '入力例' do
