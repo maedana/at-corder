@@ -26,4 +26,10 @@ describe 'ABC055 D' do
     let(:s) { 'oxooxoxoox' }
     it { is_expected.to eq 'SSWWSSSWWS' }
   end
+
+  describe '入力例' do
+    let(:n) { 3 }
+    let(:s) { 'ooo' }
+    it { is_expected.to eq 'SSS' }
+  end
 end
