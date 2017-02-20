@@ -1,23 +1,23 @@
-def count_r(r)
-  rl = r / 2
-  rr = r - rl - 1
-  (0..rl).to_a.inject(:+) + (0..rr).to_a.inject(:+)
+def cumulative_sum(n)
+  (0..n).to_a.inject(:+)
 end
 
-def count_g(g)
-  gl = g / 2
-  gr = g - gl - 1
-  (0..gl).to_a.inject(:+) + (0..gr).to_a.inject(:+)
-end
-
-def count_b(b)
-  bl = b / 2
-  br = b - bl - 1
-  (0..bl).to_a.inject(:+) + (0..br).to_a.inject(:+)
+def count_lr(n)
+  nl = n / 2
+  nr = n - nl - 1
+  cumulative_sum(nl) + cumulative_sum(nr)
 end
 
 def f(r, g, b)
-  count_r(r) + count_g(g) + count_b(b)
+  if (over_count = g - 199) && over_count > 0
+    count = count_lr(g)
+    r_move = over_count / 2
+    count += (r_move * r) + cumulative_sum(r - 1)
+    b_move = over_count - r_move
+    count += (b_move * b) + cumulative_sum(b - 1)
+  else
+    count_lr(r) + count_lr(g) + count_lr(b)
+  end
 end
 
 if $PROGRAM_NAME == __FILE__
