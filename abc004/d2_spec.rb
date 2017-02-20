@@ -1,5 +1,5 @@
 require 'rspec'
-require File.join(File.dirname(__FILE__), 'd.rb')
+require File.join(File.dirname(__FILE__), 'd2.rb')
 
 describe 'D問題' do
   subject { f(r, g, b) }
@@ -44,5 +44,33 @@ describe 'D問題' do
     let(:g) { 294 }
     let(:b) { 165 }
     it { is_expected.to eq 88577 }
+  end
+
+  describe '入力例' do
+    let(:r) { 300 }
+    let(:g) { 300 }
+    let(:b) { 300 }
+    it { is_expected.to eq 142500 }
+  end
+
+  describe '入力例' do
+    let(:r) { 299 }
+    let(:g) { 299 }
+    let(:b) { 299 }
+    it { is_expected.to eq 141352 }
+  end
+
+  describe '入力例' do
+    let(:r) { 300 }
+    let(:g) { 300 }
+    let(:b) { 100 }
+    it { is_expected.to eq 83750 }
+  end
+
+  describe '入力例' do
+    let(:r) { 300 }
+    let(:g) { 300 }
+    let(:b) { 250 }
+    it { is_expected.to eq 125625 }
   end
 end
