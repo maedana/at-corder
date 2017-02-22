@@ -1,21 +1,21 @@
 def move_count(pos, marble_count, r, g, b)
   if marble_count >= g + b
-    (400 - pos).abs
-  elsif marble_count >= b
     (500 - pos).abs
-  else
+  elsif marble_count >= b
     (600 - pos).abs
+  else
+    (700 - pos).abs
   end
 end
 
 def f(r, g, b)
-  box_count = 1000
+  box_count = 1200
   marble_count = r + g + b
 
   # dp[現在の位置][残りマーブル数] = その状態にするのに必要なマーブルの最小移動数(*1)
   # *1は、1つ前の位置にマーブルを配置済みの時と、今回の位置に新たにマーブルを配置するときでより小さい方
   # 具体的にはdp[現在の位置][残りマーブル数] = min(dp[現在の一つ前の位置][残りマーブル数], dp[現在の一つ前の位置][残りマーブル数 + 1] + 今回配置するマーブルの移動距離)
-  dp = Array.new(1000) { Array.new(1000, 10**9) } # 大きな数で初期化しておく
+  dp = Array.new(1200) { Array.new(1000, 10**9) } # 大きな数で初期化しておく
   # 一個もおいてないときの移動数はゼロ
   box_count.times { |i| dp[i][marble_count] = 0 }
 
